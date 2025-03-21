@@ -6,8 +6,6 @@ import { auth } from 'express-oauth2-jwt-bearer';
 import { initializeApp, cert } from 'firebase-admin/app';
 
 // Import routes
-import doctorRoutes from './routes/doctor.routes.js';
-import appointmentRoutes from './routes/appointment.routes.js';
 import userRoutes from './routes/user.routes.js';
 
 // Import database configuration
@@ -43,8 +41,6 @@ const checkJwt = auth({
 });
 
 // Routes
-app.use('/api/doctors', checkJwt, doctorRoutes);
-app.use('/api/appointments', checkJwt, appointmentRoutes);
 app.use('/api/users', userRoutes);
 
 // Error handling middleware
